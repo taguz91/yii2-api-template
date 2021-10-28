@@ -39,3 +39,7 @@ phpunit.phar
 /api/web/index.php
 /api/web/index-test.php
 /api/web/robots.txt
+
+dev-api.db
+prod-api.db
+test-api.db

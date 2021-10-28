@@ -2,13 +2,14 @@
 
 namespace api\controllers;
 
-use yii\rest\Controller as RestController;
+use common\yii\RestController;
 
 /**
  * Site controller
  */
 class SiteController extends RestController
 {
+
     public function actionIndex()
     {
         return [

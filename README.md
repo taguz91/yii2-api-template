@@ -6,6 +6,12 @@
     <br>
 </p>
 
+Run the application: 
+
+```bash
+$ php yii serve --docroot="api/web/"
+```
+
 DIRECTORY STRUCTURE
 -------------------
 

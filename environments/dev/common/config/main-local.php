@@ -4,7 +4,7 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=yii2advanced',
+            'dsn' => 'sqlite:' . __DIR__ . '/../../dev-api.db',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
