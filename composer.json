@@ -1,20 +1,20 @@
 {
-    "name": "yiisoft/yii2-app-advanced",
-    "description": "Yii 2 Advanced Project Template",
-    "keywords": ["yii2", "framework", "advanced", "project template"],
-    "homepage": "http://www.yiiframework.com/",
+    "name": "taguz91/yii2-api-template",
+    "description": "Yii 2 API Project Template",
+    "keywords": [
+        "yii2",
+        "framework",
+        "api",
+        "rest",
+        "project template"
+    ],
+    "homepage": "https://github.com/taguz91/yii2-api-template",
     "type": "project",
     "license": "BSD-3-Clause",
-    "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
-    },
+    "support": {},
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=7.4.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap4": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0"
@@ -35,6 +35,11 @@
         "fxp-asset": {
             "enabled": false
         }
+    },
+    "autoload": {
+        "files": [
+            "helpers.php"
+        ]
     },
     "repositories": [
         {

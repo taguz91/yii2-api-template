@@ -10,6 +10,13 @@ use common\yii\RestController;
 class SiteController extends RestController
 {
 
+    protected function verbs()
+    {
+        return [
+            'index' => ['GET']
+        ];
+    }
+
     public function actionIndex()
     {
         return [

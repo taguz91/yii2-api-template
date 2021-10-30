@@ -1,4 +1,7 @@
 <?php
+
+use yii\web\JsonParser;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -14,6 +17,9 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-api',
+            'parsers' => [
+                'application/json' => JsonParser::class,
+            ],
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -36,14 +42,24 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'defaultRoute' => 'site/index',
+                [
+                    'pattern' => '<controller:\w+>/<action:\w+>',
+                    'route' => '<controller>/<action>',
+                ],
+                // Dynamic modules 
+                [
+                    'pattern' => '<module:\w+>/<controller:\w+>/<action:\w+>',
+                    'route' => '<module>/<controller>/<action>',
+                ]
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
