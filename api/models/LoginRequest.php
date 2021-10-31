@@ -5,17 +5,26 @@ namespace api\models;
 use common\models\User;
 use common\yii\ModelRequest;
 
+/**
+ * @OA\Schema()
+ */
 class LoginRequest extends ModelRequest
 {
 
 
     /**
      * @var string
+     * @OA\Property(
+     *      example="userdos"
+     * )
      */
     public $username;
 
     /**
      * @var string
+     * @OA\Property(
+     *      example="********"
+     * )
      */
     public $password;
 

@@ -6,16 +6,35 @@ use common\models\User;
 use common\yii\ModelRequest;
 use Yii;
 
+/**
+ * @OA\Schema()
+ * 
+ */
 class CreateUserRequest extends ModelRequest
 {
 
-    /** @var string */
+    /** 
+     * @var string 
+     * @OA\Property(
+     *      example="user987123"
+     * )
+     */
     public $username;
 
-    /** @var string */
+    /** 
+     * @var string 
+     * @OA\Property(
+     *      example="email@example.com"
+     * ) 
+     */
     public $email;
 
-    /** @var string */
+    /** 
+     * @var string 
+     * @OA\Property(
+     *      example="12345678"
+     * ) 
+     */
     public $password;
 
     /** @var User|null */

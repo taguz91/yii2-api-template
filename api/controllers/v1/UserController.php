@@ -21,6 +21,25 @@ class UserController extends RestController
         ];
     }
 
+    /**
+     * @OA\Get(
+     *      path="/v1/user/random",
+     *      summary="Create a random user",
+     *      tags={"user"},
+     *      @OA\Response(
+     *          response=200,
+     *          description="When the random user was created succesfully",
+     *          @OA\JsonContent(
+     *              @OA\Schema(
+     *                  @OA\Property(
+     *                      property="saved",
+     *                      type="boolean"
+     *                  )
+     *              )
+     *          )
+     *      )
+     * )
+     */
     public function actionRandom()
     {
         $user = new User();
@@ -32,6 +51,27 @@ class UserController extends RestController
         ];
     }
 
+    /**
+     * @OA\Post(
+     *      path="/v1/user/create",
+     *      summary="Create or register a new user",
+     *      tags={"user"},
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/CreateUserRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="When the user was created succesfully",
+     *          @OA\JsonContent(ref="#/components/schemas/User")
+     *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="When the submited data has errors",
+     *          @OA\JsonContent(ref="#/components/schemas/InvalidCreateUser")
+     *      )
+     * )
+     */
     public function actionCreate()
     {
         $request = (new CreateUserRequest())
@@ -49,6 +89,27 @@ class UserController extends RestController
         ];
     }
 
+    /**
+     * @OA\Post(
+     *      path="/v1/user/login",
+     *      summary="Login into application",
+     *      tags={"user"},
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/LoginRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="When the username and password was correct",
+     *          @OA\JsonContent(ref="#/components/schemas/User")
+     *      ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Error login, invalid information",
+     *          @OA\JsonContent(ref="#/components/schemas/InvalidLogin")
+     *      )
+     * )
+     */
     public function actionLogin()
     {
         $request = (new LoginRequest())
@@ -64,6 +125,21 @@ class UserController extends RestController
         ];
     }
 
+    /**
+     * @OA\Get(
+     *      path="/v1/user/all",
+     *      summary="List all register user",
+     *      tags={"user"},
+     *      @OA\Response(
+     *          response=200,
+     *          description="All users",
+     *          @OA\JsonContent(
+     *              type="array",
+     *              @OA\Items(ref="#/components/schemas/User")
+     *          )
+     *      )
+     * )
+     */
     public function actionAll()
     {
         return User::findAll([
