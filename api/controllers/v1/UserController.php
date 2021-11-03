@@ -129,7 +129,7 @@ class UserController extends RestController
      * @OA\Get(
      *      path="/v1/user/all",
      *      summary="List all register user",
-     *      tags={"user"},
+     *      tags={"user","private"},
      *      @OA\Response(
      *          response=200,
      *          description="All users",

@@ -21,6 +21,10 @@ use yii\helpers\Url;
  * @OA\Tag(
  *      name="user", 
  *      description="User services"
+ * ),
+ * @OA\Tag(
+ *      name="private",
+ *      description="Private API"
  * )
  */
 class SiteController extends RestController
@@ -29,6 +33,7 @@ class SiteController extends RestController
     public function actions()
     {
         return [
+            // Public API documentation
             'docs' => [
                 'class'   => SwaggerAction::class,
                 'restUrl' => Url::to(['site/api-doc'])
@@ -39,8 +44,13 @@ class SiteController extends RestController
                     Yii::getAlias('@api/controllers'),
                     Yii::getAlias('@api/models'),
                 ],
+                'scanOptions' => [
+                    'exclude' => [
+                        Yii::getAlias('@api/controllers/v1/AppController'),
+                    ]
+                ],
                 'api_key' => 'token',
-            ]
+            ],
         ];
     }
 
