@@ -33,6 +33,13 @@ use yii\helpers\Url;
  *          email="johnnygar98@hotmail.com"
  *      )
  * )
+ * @OA\SecurityScheme(
+ *      type="apiKey",
+ *      description="Use login to auth",
+ *      name="X-Api-Key",
+ *      in="header",
+ *      securityScheme="ApiKeyAuth"
+ * )
  * @OA\Tag(
  *      name="user",
  *      description="User services"
@@ -44,6 +51,17 @@ use yii\helpers\Url;
  */
 class AppController extends RestController
 {
+
+    protected function rules()
+    {
+        return [
+            [
+                'actions' => ['docs', 'api-doc'],
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+        ];
+    }
 
     public function actions()
     {

@@ -49,7 +49,8 @@ class UserController extends RestController
      *                  )
      *              )
      *          )
-     *      )
+     *      ),
+     *      security={ {"ApiKeyAuth": {}} }
      * )
      */
     public function actionRandom()
@@ -108,7 +109,7 @@ class UserController extends RestController
      * @OA\Post(
      *      path="/v1/user/login",
      *      summary="Login into application",
-     *      tags={"user"},
+     *      tags={"user", "private"},
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(ref="#/components/schemas/LoginRequest")

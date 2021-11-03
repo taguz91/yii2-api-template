@@ -2,6 +2,7 @@
 
 namespace common\yii;
 
+use yii\filters\AccessControl;
 use yii\filters\auth\HttpHeaderAuth;
 use yii\filters\ContentNegotiator;
 use yii\rest\Controller;

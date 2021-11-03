@@ -3,14 +3,19 @@ main > .container {
 }
 
 .footer {
-    background-color: #f5f5f5;
-    font-size: .9em;
-    height: 60px;
+    background-color: #000;
+    font-size: 1.7em;
+    height: 80px;
+    color: white;
 }
 
 .footer > .container {
     padding-right: 15px;
     padding-left: 15px;
+}
+
+.footer > p {
+    align-items: center;
 }
 
 .not-set {
@@ -19,8 +24,9 @@ main > .container {
 }
 
 /* add sorting icons to gridview sort links */
-a.asc:after, a.desc:after {
-    content: '';
+a.asc:after,
+a.desc:after {
+    content: "";
     left: 3px;
     display: inline-block;
     width: 0;
@@ -62,29 +68,4 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
-}
-
-/* align the logout "link" (button in form) of the navbar */
-.nav li > form > button.logout {
-    padding-top: 7px;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-@media(max-width:767px) {
-    .nav li > form > button.logout {
-        display:block;
-        text-align: left;
-        width: 100%;
-        padding: 10px 0;
-    }
-}
-
-.nav > li > form > button.logout:focus,
-.nav > li > form > button.logout:hover {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.75);
-}
-
-.nav > li > form > button.logout:focus {
-    outline: none;
 }
