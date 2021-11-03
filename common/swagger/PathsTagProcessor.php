@@ -113,6 +113,7 @@ class PathsTagProcessor
     private function onlyPermitedTag(array $tags)
     {
         $filterTags = [];
+        $controller = current($tags);
         foreach ($tags as $tag) {
             if ($tag instanceof Tag) {
                 $correct = in_array($tag->name, $this->avaliableTags);
@@ -121,7 +122,7 @@ class PathsTagProcessor
             }
 
             if ($correct) {
-                $filterTags[] = $tag;
+                $filterTags[] = $controller;
             }
         }
 

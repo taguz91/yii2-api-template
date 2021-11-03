@@ -93,7 +93,7 @@ class AppController extends RestController
                         new MergeXmlContent(),
                         new OperationId(),
                         new CleanUnmerged(),
-                        new CleanTagsProcessor(['private']),
+                        new CleanTagsProcessor(['user']),
                     ],
                     'validate' => false,
                     'exclude' => [

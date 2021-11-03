@@ -28,10 +28,6 @@ use yii\helpers\Url;
  * @OA\Tag(
  *      name="user", 
  *      description="User services"
- * ),
- * @OA\Tag(
- *      name="private",
- *      description="Private API"
  * )
  */
 class SiteController extends RestController
