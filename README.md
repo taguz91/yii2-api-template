@@ -6,9 +6,14 @@
     <br>
 </p>
 
-Run the application: 
+### Getting starter
 
 ```bash
+# Init the application dev or prod
+$ php yii init
+# Generate tables in sqlite 
+$ php run migrate
+# Run the application
 $ php yii serve --docroot="api/web/"
 ```
 
@@ -21,6 +26,7 @@ api
     config/              contains api configurations
     controllers/         contains Web controller classes
     models/              contains api-specific model classes
+        definitions/     contains all swagger scheme definitions
     runtime/             contains files generated during runtime
     tests/               contains tests for api application
     views/               contains view files for the Web application
@@ -31,6 +37,7 @@ common
     mail/                contains view files for e-mails
     models/              contains model classes used in api
     tests/               contains tests for common classes    
+    swagger/             contains swagger custom proccesors
 console
     config/              contains console configurations
     controllers/         contains console controllers (commands)
