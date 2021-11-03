@@ -18,6 +18,13 @@ use yii\helpers\Url;
  *          email="johnnygar98@hotmail.com"
  *      )
  * )
+ * @OA\SecurityScheme(
+ *      type="apiKey",
+ *      description="Use /login to authenticated",
+ *      name="X-Api-Key",
+ *      in="header",
+ *      securityScheme="ApiKeyAuth"
+ * )
  * @OA\Tag(
  *      name="user", 
  *      description="User services"

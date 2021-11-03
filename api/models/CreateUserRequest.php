@@ -74,6 +74,7 @@ class CreateUserRequest extends ModelRequest
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
+        $user->generateAccessToken();
         $saved = $user->save();
 
         $this->_user = $user;

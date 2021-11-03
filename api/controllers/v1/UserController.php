@@ -6,11 +6,13 @@ use api\models\CreateUserRequest;
 use api\models\LoginRequest;
 use common\models\User;
 use common\yii\RestController;
-use Yii;
 
 class UserController extends RestController
 {
 
+    /**
+     * List of all avaliable vers 
+     */
     protected function verbs()
     {
         return [
@@ -18,6 +20,16 @@ class UserController extends RestController
             'all'    => ['GET', 'HEAD'],
             'random' => ['GET', 'HEAD'],
             'login'  => ['POST', 'HEAD'],
+        ];
+    }
+
+    /**
+     * Auth needed for the following action
+     */
+    protected function auth()
+    {
+        return [
+            'all',
         ];
     }
 
@@ -46,6 +58,9 @@ class UserController extends RestController
         $user->username = uniqid('user.');
         $user->email = uniqid() . '@example.com';
         $user->setPassword(uniqid('PASS'));
+        $user->generateAuthKey();
+        $user->generateEmailVerificationToken();
+        $user->generateAccessToken();
         return [
             'saved' => $user->save()
         ];
@@ -137,7 +152,13 @@ class UserController extends RestController
      *              type="array",
      *              @OA\Items(ref="#/components/schemas/User")
      *          )
-     *      )
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="When not authenticated",
+     *          @OA\JsonContent(ref="#/components/schemas/ExceptionResponse")
+     *      ),
+     *      security={ {"ApiKeyAuth": {}} }
      * )
      */
     public function actionAll()
